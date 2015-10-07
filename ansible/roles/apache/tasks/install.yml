@@ -9,4 +9,5 @@
   apt:
     name: '{{ item }}'
     state: present
-  with_items: apache-pkg-other
+  with_items: apache_pkg_other
+  when: apache_pkg_other
