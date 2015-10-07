@@ -1,6 +1,7 @@
 ---
 - include_vars: Debian
   when: ansible_os_family == "Debian"
+- include_vars: Common
 
 - include: install.yml
 - include: configure.yml
