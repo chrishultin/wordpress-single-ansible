@@ -1,7 +1,6 @@
 ---
 'apache-pkg': 'apache2'
-'apache-pkg-other':[
-'ufw'
+'apache-pkg-other': [
 ]
 'apache-mods': [
 'ssl',
