@@ -4,11 +4,11 @@
     src: Common/ports.conf.j2
     dest: /etc/{{apache_pkg}}/ports.conf
   notify:
-    - Restart {{apache_pkg}}
+    - Restart "{{apache_pkg}}"
 
 - name: Enable Modules - Debian
   apache2_module:
     name: {{ item }}
     state: present
-  with_items: apache-mods
-  when: ansible_os_family == 'Debian'
+  with_items: apache_mods
+  when: ansible_os_family == 'Debian' and apache_mods
