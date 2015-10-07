@@ -1,12 +1,12 @@
 ---
-'apache-pkg': 'apache2'
-'apache-pkg-other': [
+'apache_pkg': 'apache2'
+'apache_pkg_other': [
 ]
-'apache-mods': [
+'apache_mods': [
 'ssl',
 'rewrite'
 ]
-'apache-cfg-dir': '/etc/apache2/'
-'apache-vhost-dir': '/etc/apache2/sites-available'
-'apache-user': 'www-data'
-'apache-group': 'www-data'
+'apache_cfg_dir': '/etc/apache2/'
+'apache_vhost_dir': '/etc/apache2/sites-available'
+'apache_user': 'www-data'
+'apache_group': 'www-data'
