@@ -3,8 +3,9 @@
   template:
     src: Common/ports.conf.j2
     dest: /etc/{{apache_pkg}}/ports.conf
+  when: apache_sites
   notify:
-    - Restart "{{apache_pkg}}"
+    - Restart {{apache_pkg}}
 
 - name: Enable Modules - Debian
   apache2_module:
