@@ -1,6 +1,8 @@
 ---
 'apache-pkg': 'apache2'
-'apache-pkg-other':[]
+'apache-pkg-other':[
+'ufw'
+]
 'apache-mods': [
 'ssl',
 'rewrite'
