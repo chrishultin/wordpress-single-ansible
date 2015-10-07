@@ -1,0 +1,8 @@
+---
+- name: Configure ports.conf
+  template:
+    src: Common/ports.conf.j2
+    dest: /etc/{{apache_pkg}}/ports.conf
+  notify:
+    - Restart {{apache_pkg}}
+
