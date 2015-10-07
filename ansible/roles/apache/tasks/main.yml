@@ -1,0 +1,7 @@
+---
+
+- name: Install 'apache2' for Debian-based platforms
+  apt:
+    pkg: apache2
+    state: installed
+  when: ansible_os_family == 'Debian'

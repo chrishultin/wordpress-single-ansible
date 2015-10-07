@@ -1,0 +1,5 @@
+---
+### Apache Variables
+'apache-pkg': "apache2"
+'vhost-dir': "/etc/apache2/sites-available"
+'apache-user': "www-data"
