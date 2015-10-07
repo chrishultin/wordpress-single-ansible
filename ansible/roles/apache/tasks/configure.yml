@@ -6,3 +6,9 @@
   notify:
     - Restart {{apache_pkg}}
 
+- name: Enable Modules - Debian
+  apache2_module:
+    name: {{ item }}
+    state: present
+  with_items: apache-mods
+  when: ansible_os_family == 'Debian'

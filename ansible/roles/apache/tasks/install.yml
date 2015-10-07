@@ -1,7 +1,11 @@
 ---
+- name: Install 'apache' package
+  package:
+    name: {{ apache-pkg }}
+    state: present
 
-- name: Install 'apache2' for Debian-based platforms
-  apt:
-    pkg: apache2
-    state: installed
-  when: ansible_os_family == 'Debian'
+- name: Install other required packages
+  package:
+    name: {{ item }}
+    state: present
+  with_items: apache-pkg-other
