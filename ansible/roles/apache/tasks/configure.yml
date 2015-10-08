@@ -14,6 +14,13 @@
   with_items: apache_sites
   when: ansible_os_family == 'Debian' and apache_sites
 
+- name: Create Site Directories - Debian
+  file:
+    path: {{ item.webroot }}
+    state: directory
+  with_items: apache_sites
+  when: ansible_os_family == 'Debian' and apache_sites
+
 - name: Enable Sites - Debian
   file:
     src: /etc/{{ apache_pkg }}/sites-available/{{ item.site }}.conf
