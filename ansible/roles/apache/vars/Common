@@ -1,6 +1,6 @@
 ---
 - apache_sites:
-  - name: chrishultin.com:
+  - name: 'chrishultin.com'
     webroot: '/var/www/chrishultin.com/'
     ip: '192.168.0.1'
     port: '80'
