@@ -1,4 +1,4 @@
-{% for site in apache_sites.iteritems() %}
+{% for site in apache_sites %}
 NameVirtualHost *:{{ site.site }}
 Listen {{ site.port }}
 {% endfor %}
