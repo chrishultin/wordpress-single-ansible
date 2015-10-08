@@ -10,14 +10,14 @@
 - name: Configure Sites - Debian
   template:
     src: Debian/sitename.conf.j2
-    dest: /etc/{{ apache_pkg }}/sites-available/{{ item.name }}.conf
+    dest: /etc/{{ apache_pkg }}/sites-available/{{ item.key }}.conf
   with_dict: apache_sites
   when: ansible_os_family == 'Debian' and apache_sites
 
 - name: Enable Sites - Debian
   file:
-    src: /etc/{{ apache_pkg }}/sites-available/{{ item.name }}.conf
-    dest: /etc/{{ apache_pkg }}/sites-enabled/{{ item.name }}.conf
+    src: /etc/{{ apache_pkg }}/sites-available/{{ item.key }}.conf
+    dest: /etc/{{ apache_pkg }}/sites-enabled/{{ item.key }}.conf
     state: link
   with_dict: apache_sites
   when: ansible_os_family == 'Debian' and apache_sites
