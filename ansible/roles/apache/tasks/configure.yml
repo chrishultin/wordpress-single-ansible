@@ -2,7 +2,7 @@
 - name: Configure ports.conf
   template:
     src: Common/ports.conf.j2
-    dest: /etc/{{apache_pkg}}/ports.conf
+    dest: /etc/{{ apache_pkg }}/ports.conf
   when: apache_sites
   notify:
     - Restart apache

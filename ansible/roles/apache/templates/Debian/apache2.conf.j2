@@ -168,7 +168,7 @@ Include ports.conf
 </Directory>
 
 {% for site in apache_sites %}
-<Directory {{ site[3] }}>
+<Directory {{ site.webroot }}>
   Options Indexes FollowSymLinks
   AllowOverride All
   Require all granted

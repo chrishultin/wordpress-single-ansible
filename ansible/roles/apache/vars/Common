@@ -1,6 +1,9 @@
 ---
 apache_sites:
-  - chrishultin.com:
+  - name: chrishultin.com
     webroot: /var/www/chrishultin.com/
     ip: 192.168.0.1
     port: 80
+
+apache_disable_default_http: true
+apache_disable_default_https: true
