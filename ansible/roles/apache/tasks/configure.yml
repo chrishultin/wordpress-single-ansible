@@ -5,7 +5,22 @@
     dest: /etc/{{apache_pkg}}/ports.conf
   when: apache_sites
   notify:
-    - Restart {{apache_pkg}}
+    - Restart {{ apache_pkg }}
+
+- name: Configure Sites - Debian
+  template:
+    src: Debian/sitename.conf.j2
+    dest: /etc/{{ apache_pkg }}/sites-available/{{ item[0] }}.conf
+  with_items: apache_sites
+  when: ansible_os_family == 'Debian' and apache_sites
+
+- name: Enable Sites - Debian
+  file:
+    src: /etc/{{ apache_pkg }}/sites-available/{{ item[0] }}.conf
+    dest: /etc/{{ apache_pkg }}/sites-enabled/{{ item[0] }}.conf
+    state: link
+  with_items: apache_sites
+  when: ansible_os_family == 'Debian' and apache_sites
 
 - name: Enable Modules - Debian
   apache2_module:
@@ -13,3 +28,21 @@
     state: present
   with_items: apache_mods
   when: ansible_os_family == 'Debian' and apache_mods
+
+- name: Copy apache2.conf - Debian
+  template:
+    src: Debian/apache2.conf.j2
+    dest: /etc/{{ apache_pkg }}/apache2.conf
+  when: ansible_os_family == 'Debian'
+
+- name: Disable default HTTP apache site - Debian
+  file:
+    path: /etc/{{ apache_pkg }}/sites-enabled/000-default.conf
+    state: absent
+  when: ansible_os_family == 'Debian' and apache_disable_default_http
+
+- name: Disable default HTTPS apache site - Debian
+  file:
+    path: /etc/{{ apache_pkg }}/sites-enabled/default-ssl.conf
+    state: absent
+  when: ansible_os_family == 'Debian' and apache_disable_default_https

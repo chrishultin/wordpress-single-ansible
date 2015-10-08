@@ -5,7 +5,7 @@
     state: present
   when: ansible_os_family == 'Debian'
 
-- name: Install other required packages
+- name: Install other required packages - Debian
   apt:
     name: '{{ item }}'
     state: present

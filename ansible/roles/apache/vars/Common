@@ -1,2 +1,4 @@
 ---
-apache_sites: []
+apache_sites: [
+['chrishultin.com','80','192.168.0.1','/var/www/chrishultin.com/']
+]
