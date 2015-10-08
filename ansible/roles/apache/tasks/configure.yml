@@ -5,7 +5,7 @@
     dest: /etc/{{apache_pkg}}/ports.conf
   when: apache_sites
   notify:
-    - Restart {{ apache_pkg }}
+    - Restart apache
 
 - name: Configure Sites - Debian
   template:
@@ -21,6 +21,8 @@
     state: link
   with_dict: apache_sites
   when: ansible_os_family == 'Debian' and apache_sites
+  notify:
+    - Restart apache
 
 - name: Enable Modules - Debian
   apache2_module:
