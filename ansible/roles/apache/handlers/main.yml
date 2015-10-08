@@ -1,5 +1,5 @@
 ---
 - name: Restart apache
   service:
-    name: {{ apache_pkg }}
+    name: "{{ apache_pkg }}"
     state: reloaded
